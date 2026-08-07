@@ -7,67 +7,51 @@ A deep learning project that recognizes handwritten digits (0–9) using a Convo
 ## Live Demo
 
 **Streamlit App:**  
-https://YOUR-STREAMLIT-LINK.streamlit.
+https://YOUR-STREAMLIT-LINK.streamlit.app
 
 ---
 
 ## Project Overview
 
-This project demonstrates how Convolutional Neural Networks (CNNs) can accurately classify handwritten digits. The model is trained on the MNIST dataset and integrated into a Streamlit web application that allows users to draw digits directly in the browser.
-
-To improve real-world performance, the application preprocesses the drawn digit by cropping, resizing, and centering it before prediction, closely matching the format of the original MNIST images.
+This project demonstrates handwritten digit recognition using a CNN trained on the MNIST dataset. Users can draw digits directly on an interactive canvas, and the application predicts the digit in real time after applying preprocessing techniques such as cropping, centering, resizing, and normalization.
 
 ---
 
 ## Features
 
 - Interactive drawing canvas
-- Real-time handwritten digit recognition
+- Real-time handwritten digit prediction
 - Prediction confidence score
-- Probability distribution for all 10 digit classes
+- Class-wise probability distribution
 - Automatic image preprocessing
-- CNN model trained using TensorFlow/Keras
-- User-friendly Streamlit interface
+- CNN model trained on the MNIST dataset
+- Simple and responsive Streamlit interface
 
 ---
 
 ## Tech Stack
 
-### Programming Language
-- Python
-
-### Deep Learning
-- TensorFlow
-- Keras
-
-### Web Framework
+- Python **3.11**
+- TensorFlow / Keras
 - Streamlit
 - streamlit-drawable-canvas
-
-### Data Processing
 - NumPy
 - Pillow
-
-### Data Visualization
 - Matplotlib
 - Seaborn
-
-### Machine Learning Utilities
 - Scikit-learn
 
 ---
 
 ## Dataset
 
-The project uses the **MNIST Handwritten Digit Dataset**, containing:
+The project uses the **MNIST Handwritten Digit Dataset**, which contains:
 
-- **70,000** grayscale images
-- **60,000** training images
-- **10,000** testing images
+- 70,000 grayscale handwritten digit images
+- 60,000 training images
+- 10,000 testing images
 - Image size: **28 × 28 pixels**
 - Digit classes: **0–9**
-
-MNIST is one of the most widely used benchmark datasets for image classification.
 
 ---
 
@@ -79,22 +63,23 @@ The model is a Convolutional Neural Network (CNN) consisting of:
 - ReLU Activation
 - Max Pooling Layers
 - Dropout Layers
-- Fully Connected Dense Layers
+- Dense Layers
 - Softmax Output Layer
 
-Data augmentation techniques such as rotation, shifting, and zooming were applied during training to improve generalization.
+Data augmentation techniques such as rotation, shifting, and zooming are applied during training to improve generalization.
 
 ---
 
 ## Project Structure
 
-```
-digit-recognizer/
+```text
+handwritten-digit-detection/
 │
-├── train_notebook.ipynb     # Complete training pipeline
-├── app.py                   # Streamlit application
-├── digit_model.keras        # Trained CNN model
-├── requirements.txt         # Required Python libraries
+├── train_notebook.ipynb
+├── app.py
+├── digit_model.keras
+├── requirements.txt
+├── runtime.txt
 ├── README.md
 ```
 
@@ -103,48 +88,44 @@ digit-recognizer/
 ## Workflow
 
 1. Load the MNIST dataset.
-2. Perform preprocessing and normalization.
+2. Preprocess and normalize the images.
 3. Apply data augmentation.
 4. Train the CNN model.
 5. Evaluate the model.
 6. Save the trained model.
 7. Launch the Streamlit application.
-8. Draw a digit on the canvas.
-9. Preprocess the drawing.
-10. Predict the digit with confidence.
+8. Draw a digit and predict the result.
 
 ---
 
 ## Model Performance
 
 | Metric | Value |
-|---------|--------|
+|---------|------:|
 | Test Accuracy | **99.33%** |
 | Dataset | MNIST |
-| Classes | 10 |
+| Number of Classes | 10 |
 | Image Size | 28 × 28 |
 
 ### Performance Highlights
 
-- **Test Accuracy:** **99.33%**
-- High confidence predictions for clean handwritten digits
-- Robust preprocessing significantly improves recognition of user-drawn digits
-- Displays class-wise probability distribution for every prediction
+- **99.33% Test Accuracy**
+- High-confidence predictions for handwritten digits
+- Image preprocessing improves prediction accuracy on user-drawn digits
+- Displays probability scores for all digit classes
 
 ---
 
 ## Image Preprocessing
 
-Before prediction, every drawing undergoes:
+Before prediction, each drawing undergoes:
 
-- Conversion to grayscale
+- Grayscale conversion
 - Bounding box detection
-- Cropping the handwritten digit
-- Resizing to a 20 × 20 region
-- Centering inside a 28 × 28 image
+- Cropping
+- Resizing to 20 × 20 pixels
+- Centering in a 28 × 28 frame
 - Pixel normalization
-
-This preprocessing closely matches the original MNIST format and improves prediction accuracy.
 
 ---
 
@@ -153,9 +134,8 @@ This preprocessing closely matches the original MNIST format and improves predic
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/digit-recognizer.git
-
-cd digit-recognizer
+git clone https://github.com/YOUR_USERNAME/handwritten-digit-detection.git
+cd handwritten-digit-detection
 ```
 
 Install dependencies:
@@ -163,6 +143,18 @@ Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+
+---
+
+## Python Version
+
+This project is developed and tested using:
+
+```text
+Python 3.11
+```
+
+> **Note:** TensorFlow currently does not support Python 3.14 on Streamlit Cloud. Using **Python 3.11** is recommended for successful deployment.
 
 ---
 
@@ -176,12 +168,12 @@ train_notebook.ipynb
 
 The notebook will:
 
-- Download MNIST
-- Train the CNN
-- Evaluate performance
+- Download the MNIST dataset
+- Train the CNN model
+- Evaluate model performance
 - Save the trained model as:
 
-```
+```text
 digit_model.keras
 ```
 
@@ -193,20 +185,18 @@ digit_model.keras
 streamlit run app.py
 ```
 
-Open the local Streamlit URL in your browser.
-
-Draw a digit and click **Predict**.
+Open the local Streamlit URL in your browser, draw a digit, and click **Predict**.
 
 ---
 
 ## Future Improvements
 
 - Multi-digit recognition
-- Support for handwritten mathematical expressions
-- Model quantization for faster inference
+- Handwritten mathematical expression recognition
+- Faster inference using model optimization
 - Mobile-friendly interface
-- Deploy using Docker
-- Support EMNIST alphabet recognition
+- Docker support
+- EMNIST alphabet recognition
 
 ---
 
@@ -216,18 +206,6 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## Acknowledgements
-
-- TensorFlow
-- Streamlit
-- MNIST Dataset
-- Keras
-- Scikit-learn
-
----
-
 ## Author
 
-**Shree Nath Mahato**
-
----
+**Shree Nath Mahto**
