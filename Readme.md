@@ -7,7 +7,7 @@ A deep learning project that recognizes handwritten digits (0–9) using a Convo
 ## Live Demo
 
 **Streamlit App:**  
-https://YOUR-STREAMLIT-LINK.streamlit.app
+https://handwritten-digit-detection.streamlit.app/
 
 ---
 
@@ -134,7 +134,7 @@ Before prediction, each drawing undergoes:
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/handwritten-digit-detection.git
+git clone https://github.com/ShreeNathX/Handwritten-Digit-Detection.git
 cd handwritten-digit-detection
 ```
 
