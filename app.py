@@ -23,6 +23,7 @@ canvas_result = st_canvas(
     width=280,
     drawing_mode="freedraw",
     key="canvas",
+    return_image_data=True,
 )
 
 def preprocess_canvas(image_data):
